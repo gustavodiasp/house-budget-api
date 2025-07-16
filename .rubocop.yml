@@ -1,6 +1,2 @@
 inherit_gem:
   rubocop-rails-omakase: rubocop.yml
-
-# Override the rule to allow single quotes
-Style/StringLiterals:
-  EnforcedStyle: single_quotes
