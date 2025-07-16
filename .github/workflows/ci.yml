@@ -79,5 +79,5 @@ jobs:
       - name: Run RSpec tests
         env:
           RAILS_ENV: test
-          DATABASE_URL: mysql2://127.0.0.1:3306
+          DATABASE_URL: mysql3://127.0.0.1:3306
         run: bundle exec rspec
