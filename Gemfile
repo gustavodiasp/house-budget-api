@@ -14,6 +14,8 @@ gem "thruster", require: false
 group :development do
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails-omakase', require: false
 end
 
 group :development, :test do
