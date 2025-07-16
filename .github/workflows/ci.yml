@@ -68,9 +68,16 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Run tests
+      - name: Setup test database
         env:
           RAILS_ENV: test
           DATABASE_URL: mysql2://127.0.0.1:3306
-          # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test
+        run: |
+          bin/rails db:create
+          bin/rails db:migrate
+
+      - name: Run RSpec tests
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: mysql2://127.0.0.1:3306
+        run: bundle exec rspec
