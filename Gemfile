@@ -10,7 +10,6 @@ gem "solid_cable"
 gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
-gem 'rubocop', require: false
 
 group :development do
   gem 'listen', '~> 3.3'
