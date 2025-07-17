@@ -14,16 +14,34 @@ services:
       timeout: 3s
       retries: 5
 
+  db_test:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: house_budget_api_test
+    volumes:
+      - db_test_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
   web:
     build: .
     ports:
       - "3000:3000"
     depends_on:
       - db
+      - db_test
     environment:
       RAILS_ENV: development
       DATABASE_URL: mysql2://root:root@db:3306/house_budget_api_development
+      DATABASE_TEST_URL: mysql2://root:root@db_test:3306/house_budget_api_test
     command: bash -lc "bundle exec rails db:create db:migrate && bundle exec rails server -b 0.0.0.0"
 
 volumes:
   db_data:
+  db_test_data:
