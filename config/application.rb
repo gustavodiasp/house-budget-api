@@ -8,7 +8,8 @@ Bundler.require(*Rails.groups)
 
 module HouseBudgetApi
   class Application < Rails::Application
-    Rails.application.config.active_record.protected_environments -= [ "test" ]
+    protected_envs = Rails.application.config.active_record.protected_environments || []
+    Rails.application.config.active_record.protected_environments = protected_envs - ["test"]
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
