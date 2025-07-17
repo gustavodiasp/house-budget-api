@@ -8,11 +8,13 @@ default: &default
   port: 3306
 
 development:
-  url: <%= ENV['DATABASE_URL'] %>
+  <<: *default
+  database: house_budget_api_development
 
 test:
   <<: *default
   database: house_budget_api_test
+
 
 production:
   primary: &primary_production
