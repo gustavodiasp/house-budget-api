@@ -14,25 +14,9 @@ development:
 test:
   <<: *default
   database: house_budget_api_test
-  host: db_test
-  port: 3306
-
 
 production:
-  primary: &primary_production
-    <<: *default
-    database: house_budget_api_production
-    username: house_budget_api
-    password: <%= ENV["HOUSE_BUDGET_API_DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-    database: house_budget_api_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    database: house_budget_api_production_queue
-    migrations_paths: db/queue_migrate
-  cable:
-    <<: *primary_production
-    database: house_budget_api_production_cable
-    migrations_paths: db/cable_migrate
+  <<: *default
+  database: house_budget_api_production
+  username: house_budget_api
+  password: <%= ENV["HOUSE_BUDGET_API_DATABASE_PASSWORD"] %>
