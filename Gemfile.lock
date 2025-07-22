@@ -352,7 +352,7 @@ DEPENDENCIES
   factory_bot_rails
   kamal
   listen (~> 3.3)
-  mysql2 (~> 0.5)
+  mysql2 (~> 0.5.4)
   puma (>= 5.0)
   rails (~> 8.0.2)
   rspec-rails (~> 5.0)
