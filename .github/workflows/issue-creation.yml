@@ -1,0 +1,27 @@
+name: Create Issue from Board
+
+on:
+  project_card:
+    types: [created]  # Quando um card de projeto é criado, disparar o workflow
+
+jobs:
+  create-issue:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Get the last issue number
+        id: last_issue
+        run: |
+          last_number=$(gh issue list --limit 1 --json number --query '.[0].number' || echo "0")
+          echo "Last issue number is: $last_number"
+          echo "LAST_ISSUE=$last_number" >> $GITHUB_ENV
+
+      - name: Create new issue with incremented number
+        run: |
+          issue_number=$((LAST_ISSUE + 1))
+          formatted_issue="HB-$(printf "%04d" $issue_number)"
+          echo "Creating issue: $formatted_issue"
+          gh issue create --title "Task $formatted_issue" --body "Descrição da task com o código $formatted_issue" --label "task"
