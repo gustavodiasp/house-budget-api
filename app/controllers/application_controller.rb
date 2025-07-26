@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+  # TODO: Write tests to ensure the following rescue handlers behave as expected:
   rescue_from ActiveRecord::RecordNotFound do |exception|
     render json: { error: 'Resource not found.' }, status: :not_found
   end
