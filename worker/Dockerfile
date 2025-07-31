@@ -38,7 +38,10 @@ RUN gem install pg
 ADD . /home/app/web
 WORKDIR /home/app/web
 
-RUN chmod +x config/setup_app.sh
-
 # Bundle install with retries in case of eventual failure.
 RUN bundle install --jobs 5 --retry 5
+
+COPY ./worker/entrypoint.sh /home/app/web/worker/entrypoint.sh
+RUN chmod +x /home/app/web/worker/entrypoint.sh
+
+CMD bash /home/app/web/worker/entrypoint.sh

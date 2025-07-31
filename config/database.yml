@@ -1,11 +1,12 @@
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: root
-  host: db
-  port: 3306
+  url: <%= ENV["DATABASE_URL"] %> #See .evn.development
+  #username: postgres #all of this is included on the URL but could be declared here
+  #password: postgres
+  #host: db
+  #port: 5432
 
 development:
   <<: *default
@@ -13,7 +14,7 @@ development:
 
 test:
   <<: *default
-  port: 3306
+  database: house_budget_api_test
 
 
 production:

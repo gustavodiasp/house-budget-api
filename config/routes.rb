@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -7,4 +8,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  get 'home', to: 'home#index'
+  mount Sidekiq::Web => '/sidekiq' #To view sidekiq dashboard on browser localhost:3000/sidekiq
 end
