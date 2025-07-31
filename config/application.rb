@@ -9,7 +9,10 @@ Bundler.require(*Rails.groups)
 module HouseBudgetApi
   class Application < Rails::Application
 
-
+    # Habilita middleware de cookies e sessão para uso do Sidekiq Web
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore, key: '_your_app_session'
+    
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
 

@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get 'home', to: 'home#index'
-  mount Sidekiq::Web => '/sidekiq' #To view sidekiq dashboard on browser localhost:3000/sidekiq
+  mount Sidekiq::Web => "/sidekiq" #To view sidekiq dashboard on browser localhost:3000/sidekiq
 end
