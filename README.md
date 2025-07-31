@@ -41,3 +41,7 @@ sudo chmod +x config/setup_app.sh
 
 password: postgres
 ```
+
+##References:
+Docker config:
+https://www.youtube.com/watch?v=OfkMwWGEdZg
