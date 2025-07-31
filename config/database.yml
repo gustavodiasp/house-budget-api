@@ -1,6 +1,6 @@
 default: &default
   adapter: postgresql
-  encoding: utf8mb4
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   url: <%= ENV["DATABASE_URL"] %> #See .evn.development
   #username: postgres #all of this is included on the URL but could be declared here
