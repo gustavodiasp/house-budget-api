@@ -52,4 +52,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_04_174715) do
   add_foreign_key "financial_events", "groups"
   add_foreign_key "user_groups", "groups"
   add_foreign_key "user_groups", "users"
+ActiveRecord::Schema[8.0].define(version: 0) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
+
 end
