@@ -7,7 +7,7 @@ gem "puma", ">= 5.0"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem 'solid_cable', '~> 3.0'
 gem 'solid_cache', '~> 1.0'
-gem 'solid_queue', '~> 1.1'
+gem 'solid_queue', '~> 1.3'
 gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
