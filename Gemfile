@@ -36,6 +36,6 @@ end
 group :test do
   gem 'database_cleaner', '~> 2.0' # Strategies for cleaning up the database in between test runs
   gem 'simplecov', '~> 0.22.0', require: false # Generate coverage reports for tests
-  gem 'webmock', '~> 3.21' # Stub and set expectations on http requests
+  gem 'webmock', '~> 3.26' # Stub and set expectations on http requests
   gem 'shoulda-matchers', '~> 6.2' # Custom expectations for rails helpers/macros
 end
