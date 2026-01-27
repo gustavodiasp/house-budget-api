@@ -25,7 +25,7 @@ group :development, :test do
   gem 'brakeman', '~> 6.1', require: false
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 7.1.0' # Test framework
-  gem 'factory_bot_rails', '~> 6.4', '>= 6.4.3' # Instantiate and persist models
+  gem 'factory_bot_rails', '~> 6.5' # Instantiate and persist models
   gem 'rubocop', require: false
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-performance', require: false
