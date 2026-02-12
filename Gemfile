@@ -18,10 +18,12 @@ group :development do
   gem "spring"
   gem "rubocop", require: false
   gem "rubocop-rails-omakase", require: false
-  gem 'brakeman', '~> 6.1', require: false
 end
 
 group :development, :test do
+  gem 'rswag-api'
+  gem 'rswag-ui'
+  gem 'rswag-specs'
   gem 'brakeman', '~> 6.1', require: false
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 7.1.0' # Test framework
